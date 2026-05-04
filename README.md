@@ -207,7 +207,7 @@ python3 scripts/burn_subtitles.py \
 - **交互**：滚动进度条、章节 fade-in、卡片悬浮、时间戳 hover 高亮
 
 **在线预览地址**：
-👉 [https://yuanjie05.github.io/video-podcast-summary/examples/replit_ceo_interview_summary.html](https://yuanjie05.github.io/video-podcast-summary/examples/replit_ceo_interview_summary.html)
+👉 [https://abysscat-yj.github.io/video-podcast-summary/examples/replit_ceo_interview_summary.html](https://abysscat-yj.github.io/video-podcast-summary/examples/replit_ceo_interview_summary.html)
 
 > 提示：将本仓库开启 GitHub Pages（Source 设为 `/root` 或 `/docs`），`examples/` 目录下的 HTML 即可自动成为可访问的在线 Demo。
 
