@@ -20,12 +20,13 @@
 
 ## 🚀 一句话使用
 
-把本 Skill 放进你的 Agent，然后直接发视频链接：
+**第 1 步：把 GitHub 链接丢给你的 Agent**
 
-```bash
-# Claude Code
-cp -r video-podcast-summary ~/.claude/skills/
-```
+> 帮我安装这个 skill：https://github.com/abysscat-yj/video-podcast-summary
+
+Agent 会自动从 GitHub 拉取代码、放到正确的 skills 目录、检查并安装 ffmpeg / yt-dlp / Python 依赖。
+
+**第 2 步：丢视频链接**
 
 > "帮我把这个视频转成 HTML 总结：https://www.youtube.com/watch?v=..."
 >
@@ -35,7 +36,7 @@ cp -r video-podcast-summary ~/.claude/skills/
 
 Agent 自动完成：识别平台 → 下载音频 → 转录 → AI 分析 → 生成主题自适应 HTML → 提取片段 → 烧录字幕。你什么都不用管。
 
-**兼容 Agent**：Claude Code · GitHub Copilot / Codex CLI · Cursor Agent · OpenClaw 及所有遵循 Skill 协议的 Agent
+**兼容 Agent**：Claude Code · GitHub Copilot / Codex CLI · Cursor Agent · OpenClaw · 任何支持从 GitHub 安装 Skill 的 Agent
 
 ---
 
