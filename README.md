@@ -1,4 +1,4 @@
-# video-podcast-summary
+# video-podcast-summary-skill
 
 > 丢给 Agent 一个视频链接，收获一份设计精美、可离线打开、带时间戳和精彩片段的交互式 HTML 总结。
 
