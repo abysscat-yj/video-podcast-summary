@@ -20,13 +20,26 @@
 
 ## 🎨 先看看效果
 
-[**👉 在线预览：Replit CEO 深度访谈总结**](https://abysscat-yj.github.io/video-podcast-summary/examples/replit_ceo_interview_summary.html)
+### Demo 1：Replit CEO 深度访谈（科技/AI 主题）
+
+[**👉 在线预览**](https://abysscat-yj.github.io/video-podcast-summary/examples/replit_ceo_interview_summary.html)
 
 - 13 个结构化章节，带精确时间戳
 - 关键引述、彩色高亮框、对比表格
 - 嵌入式视频片段 + 片段索引网格
 - 滚动进度条、章节进入动画、卡片悬浮、时间戳 hover 高亮
 - 科技/AI 暗色主题，完全自包含（无 CDN，可本地离线打开）
+
+### Demo 2：蔡康永 × 罗永浩（文化/人文 主题）
+
+[**👉 在线预览：蔡康永 × 罗永浩：在残酷的世界寻找自在与和解**](https://abysscat-yj.github.io/video-podcast-summary/examples/cai_kangyong_luo_yonghao_summary.html)
+
+- **B站 3.5 小时深度访谈**，10 个结构化章节
+- **内嵌 10 段精彩片段视频**，点击即播，无需跳转
+- **章节时间戳可跳转 B站**，想看完整段落一键直达
+- 文化/人文风格：玫瑰红 + 琥珀金配色，衬线体引述，杂志质感
+- 对谈还原块：呈现原汁原味的嘉宾对话场景
+- 暗色/亮色自适应主题，移动端完美适配
 
 ---
 
@@ -88,7 +101,8 @@ video-podcast-summary/
 │   ├── translate_subtitles.py   # 字幕翻译（VTT → SRT + VTT）
 │   └── burn_subtitles.py        # 字幕烧录到视频帧
 └── examples/
-    └── replit_ceo_interview_summary.html   # 完整 Demo
+    ├── replit_ceo_interview_summary.html   # Demo 1：科技/AI 主题
+    └── cai_kangyong_luo_yonghao_summary.html   # Demo 2：文化/人文 主题（B站 3.5h 访谈）
 ```
 
 ---

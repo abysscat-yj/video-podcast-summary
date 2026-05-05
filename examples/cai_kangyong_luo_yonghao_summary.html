@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蔡康永 × 罗永浩：在残酷的世界寻找自在与和解 | 播客总结</title>
+<style>
+:root {
+  --bg: #0f0e0e;
+  --bg-elevated: #1a1918;
+  --bg-card: #232221;
+  --bg-glass: rgba(26, 25, 24, 0.85);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(251, 113, 133, 0.35);
+  --text: #f2f0ee;
+  --text-secondary: #b8b4b0;
+  --text-muted: #7a7774;
+  --accent: #f05a6e;
+  --accent-dim: rgba(240, 90, 110, 0.1);
+  --accent-glow: rgba(240, 90, 110, 0.4);
+  --accent-warm: #e88c4a;
+  --gradient-hero: linear-gradient(135deg, #1a1025 0%, #2d1810 50%, #0f0e0e 100%);
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-sans: 'SF Pro Display', 'Noto Sans SC', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #faf8f5;
+    --bg-elevated: #f5f2ee;
+    --bg-card: #ffffff;
+    --bg-glass: rgba(255, 255, 255, 0.9);
+    --border: rgba(0, 0, 0, 0.07);
+    --border-hover: rgba(200, 50, 70, 0.35);
+    --text: #2a2826;
+    --text-secondary: #5a5652;
+    --text-muted: #9a9590;
+    --accent: #c83a4e;
+    --accent-dim: rgba(200, 50, 70, 0.08);
+    --accent-glow: rgba(200, 50, 70, 0.3);
+    --accent-warm: #c4702a;
+    --gradient-hero: linear-gradient(135deg, #f8f0e8 0%, #f5ebe0 50%, #faf8f5 100%);
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Progress bar */
+.progress-bar { position: fixed; top: 0; left: 0; right: 0; height: 2px; background: var(--bg-elevated); z-index: 9999; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-warm)); transition: width 0.15s linear; }
+
+/* Hero */
+.hero {
+  background: var(--gradient-hero);
+  padding: 100px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(240,90,110,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 80% 100%, rgba(232,140,74,0.08) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 16px; border-radius: 100px;
+  background: var(--accent-dim); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.8px; margin-bottom: 28px;
+  border: 1px solid var(--border-hover);
+  text-transform: uppercase;
+}
+.hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; }
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  font-weight: 400;
+  font-style: italic;
+}
+.meta-row { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; font-size: 13px; color: var(--text-muted); }
+.meta-row span { display: flex; align-items: center; gap: 6px; }
+
+/* Video embed */
+.video-wrap {
+  max-width: 800px; margin: -40px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border: 1px solid var(--border);
+}
+.video-container iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+
+/* Container */
+.container { max-width: 800px; margin: 0 auto; padding: 60px 24px 40px; }
+
+/* Takeaway lead */
+.takeaway-lead {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+  padding: 36px; margin-bottom: 56px; position: relative; overflow: hidden;
+}
+.takeaway-lead::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+}
+.takeaway-lead h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; color: var(--accent); font-weight: 600; }
+.takeaway-lead p {
+  font-family: var(--font-serif);
+  color: var(--text-secondary); font-size: 17px; line-height: 1.9;
+}
+
+/* TOC */
+.toc { margin-bottom: 56px; }
+.toc h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 20px; font-weight: 600; }
+.toc-grid { display: grid; gap: 10px; }
+.toc-item {
+  display: flex; align-items: center; gap: 14px; padding: 14px 18px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  text-decoration: none; color: var(--text); font-size: 15px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toc-item:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.toc-num { font-family: 'SF Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 700; min-width: 26px; letter-spacing: 0.5px; }
+.toc-title { flex: 1; font-weight: 500; }
+.toc-time { font-family: 'SF Mono', monospace; font-size: 11px; color: var(--text-muted); background: var(--bg-elevated); padding: 3px 8px; border-radius: 6px; }
+
+/* Section */
+.section {
+  margin-bottom: 64px; opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section.visible { opacity: 1; transform: translateY(0); }
+.section-anchor { display: block; position: relative; top: -80px; visibility: hidden; }
+.section-header { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 24px; }
+.section-num-box {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800; color: #fff; flex-shrink: 0;
+  box-shadow: 0 8px 20px var(--accent-dim);
+}
+.section-title-group h2 { font-size: clamp(20px, 3vw, 26px); font-weight: 600; margin-bottom: 6px; line-height: 1.3; letter-spacing: -0.3px; }
+.timestamp {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'SF Mono', monospace; font-size: 12px; color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.timestamp:hover { color: var(--accent); }
+.timestamp svg { opacity: 0.6; transition: opacity 0.2s; }
+.timestamp:hover svg { opacity: 1; }
+
+.section-body p {
+  color: var(--text-secondary); margin-bottom: 16px; font-size: 15.5px; line-height: 1.8;
+}
+.section-body .details-text {
+  color: var(--text-muted); font-size: 14.5px; line-height: 1.85;
+  border-left: 2px solid var(--border); padding-left: 18px; margin: 16px 0;
+}
+
+/* Bullet list */
+.bullet-list { list-style: none; margin: 20px 0; }
+.bullet-list li {
+  position: relative; padding-left: 22px; margin-bottom: 11px;
+  color: var(--text-secondary); font-size: 15px; line-height: 1.7;
+}
+.bullet-list li::before {
+  content: ''; position: absolute; left: 0; top: 10px;
+  width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+}
+
+/* Dialogue block */
+.dialogue-block {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 20px 0;
+}
+.dialogue-line {
+  display: flex; gap: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.dialogue-line:last-child { margin-bottom: 0; }
+.dialogue-speaker {
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 56px;
+}
+.dialogue-text {
+  color: var(--text-secondary);
+}
+
+/* Blockquote */
+blockquote {
+  position: relative;
+  border-left: none;
+  padding: 28px 28px 28px 32px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 28px 0;
+  background: linear-gradient(135deg, var(--accent-dim), transparent);
+  border-radius: 0 16px 16px 0;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+}
+.quote-mark {
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.25;
+  font-family: Georgia, serif;
+  font-style: italic;
+  user-select: none;
+}
+
+/* Clip video */
+.clip-video-wrap {
+  margin: 20px 0 24px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  position: relative;
+}
+.clip-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.clip-video-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+}
+
+/* Clip index */
+.clip-index { margin-top: 72px; }
+.clip-index h3 { font-size: 20px; margin-bottom: 24px; font-weight: 600; }
+.clip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.clip-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 18px; cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.clip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.14);
+  border-color: var(--border-hover);
+}
+.clip-card-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+.clip-card-time { font-size: 12px; color: var(--text-muted); font-family: 'SF Mono', monospace; }
+
+/* Footer */
+.footer { text-align: center; padding: 56px 24px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 72px; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero { padding: 70px 20px 50px; }
+  .hero h1 { font-size: 26px; }
+  .container { padding: 40px 20px 30px; }
+  .section-header { flex-direction: column; gap: 12px; }
+  .section-num-box { width: 44px; height: 44px; font-size: 16px; }
+  .clip-grid { grid-template-columns: 1fr; }
+  .dialogue-line { flex-direction: column; gap: 2px; }
+  .takeaway-lead { padding: 24px; }
+  blockquote { padding: 22px 20px 22px 24px; font-size: 15px; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="tag">罗永浩的十字路口 · 深度访谈</div>
+    <h1>蔡康永 × 罗永浩：在残酷的世界寻找自在与和解</h1>
+    <p class="hero-subtitle">一场关于创作、衰老、死亡与人生意义的四小时深谈</p>
+    <div class="meta-row">
+      <span>嘉宾：蔡康永</span>
+      <span>主持：罗永浩</span>
+      <span>时长：约3小时37分钟</span>
+    </div>
+  </div>
+</header>
+
+<div class="video-wrap">
+  <div class="video-container">
+    <iframe src="https://player.bilibili.com/player.html?bvid=BV1ou9mBFEMZ&page=1&high_quality=1&autoplay=0" allowfullscreen="true" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe>
+  </div>
+</div>
+
+<main class="container">
+  <div class="takeaway-lead">
+    <h2>核心洞察</h2>
+    <p>这场近四小时的对谈，展现了蔡康永作为知识分子底色的一面。从『康熙来了』的辉煌到淡出公众视野的平静，从对死亡的坦然到对人生意义的独特诠释——面包的香味只能在烤制过程中出现，意义也只能在投入生活的过程中生发。这不是麻痹神经的廉价迷幻药，而是现代人在精神荒野中行路时的罗盘。</p>
+  </div>
+
+  <nav class="toc">
+    <h3>目录</h3>
+    <div class="toc-grid">
+      <a class="toc-item" href="#s1"><span class="toc-num">01</span><span class="toc-title">聊聊近况：告别公众视野的日子</span><span class="toc-time">00:00</span></a>
+      <a class="toc-item" href="#s2"><span class="toc-num">02</span><span class="toc-title">两老头论片：好莱坞的傲慢与偏见</span><span class="toc-time">23:52</span></a>
+      <a class="toc-item" href="#s3"><span class="toc-num">03</span><span class="toc-title">回应『康熙不好看』：恭喜你毕业了</span><span class="toc-time">33:35</span></a>
+      <a class="toc-item" href="#s4"><span class="toc-num">04</span><span class="toc-title">绝非心灵鸡汤：关于仪式感的真相</span><span class="toc-time">53:37</span></a>
+      <a class="toc-item" href="#s5"><span class="toc-num">05</span><span class="toc-title">《康熙来了》：打败时间的综艺奇迹</span><span class="toc-time">01:24:03</span></a>
+      <a class="toc-item" href="#s6"><span class="toc-num">06</span><span class="toc-title">深入讨论AI：人类会被淘汰吗？</span><span class="toc-time">02:06:25</span></a>
+      <a class="toc-item" href="#s7"><span class="toc-num">07</span><span class="toc-title">中年心理危机：40岁那年的恐怖确定感</span><span class="toc-time">02:20:32</span></a>
+      <a class="toc-item" href="#s8"><span class="toc-num">08</span><span class="toc-title">遗嘱、死亡和葬礼：直面生命的终点</span><span class="toc-time">02:41:33</span></a>
+      <a class="toc-item" href="#s9"><span class="toc-num">09</span><span class="toc-title">理想的告别：猝然离世是最好的结局</span><span class="toc-time">03:13:28</span></a>
+      <a class="toc-item" href="#s10"><span class="toc-num">10</span><span class="toc-title">推荐嘉宾与最后的感谢</span><span class="toc-time">03:34:52</span></a>
+    </div>
+  </nav>
+
+  <div class="section" id="s1">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">01</div>
+        <div class="section-title-group">
+            <h2>聊聊近况：告别公众视野的日子</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=0" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                00:00 - 23:52
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">罗永浩以极具个人风格的介绍开场，将蔡康永誉为华语主持界最会说话的人。蔡康永谈及自己近年淡出公众视野的原因：一方面觉得想做的节目都已做过，另一方面他本来就不是喜欢人群的人。他提出一个令人心酸的观点——一个人陪大家太久，会让观众意识到自己也在变老，这是一种双重的杀伤力。他以好莱坞明星衰老为例，说明打破青春幻梦的残酷。</p>
+        <p class="details-text">蔡康永坦言自己从小就不是喜欢人群的人，做节目是尽一份社会责任。他认为『已经打扰大家很久了』，所以适时退出是对观众的尊重。一个人陪伴观众太久，会让双方都体会到衰老的残酷——观众在镜中看到自己老去，而主持人在台上也无可避免地显露岁月的痕迹。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/01_opening.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>蔡康永认为不做节目是因为『已经打扰大家很久了』</li>
+            <li>他享受过自己的日子，不在意网络上的评论</li>
+            <li>一个人陪伴观众太久，会让双方都体会到衰老的残酷</li>
+            <li>罗永浩透露自己每周只敢安装一次抖音，否则会失控刷通宵</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">最近两年在忙什么？因为好像我有相当一段时期没有听到你的消息。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">我在过自己的日子。我本来就不是很在意网络上的评论，我觉得已经打扰大家很久了。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            我已经打扰大家很久了，所以就不要再打扰大家。一个人陪大家太久了，你会让大家体会到他们自己老了。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s2">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">02</div>
+        <div class="section-title-group">
+            <h2>两老头论片：好莱坞的傲慢与偏见</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=1432" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                23:52 - 33:35
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">蔡康永回忆在加州大学洛杉矶分校（UCLA）学电影的经历，发现好莱坞学生根本不认识费里尼、楚浮、黑泽明等大师，只认产业化的类型片。他们编写的剧本全是谋杀、撞车、走私、贩毒，而亚洲学生写的家庭伦理、内心成长则被教授委婉地评为『很有境界』但缺乏观众吸引力。这让蔡康永深刻体会到好莱坞工业体系对艺术电影的排斥。</p>
+        <p class="details-text">在UCLA的第一堂编剧课上，蔡康永遭遇了巨大的文化冲击。好莱坞学生产出的剧本清一色是谋杀、撞车、走私、贩毒等类型片，教授称赞不已；而亚洲学生写的家庭伦理、内心成长题材，教授只是委婉地说『很有境界』，然后指出『开场三分钟没有给观众一个理由让他们继续看下去』。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/02_hollywood.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>好莱坞学电影的学生不认识费里尼、黑泽明</li>
+            <li>编剧课产出的剧本全是商业化类型片</li>
+            <li>亚洲学生的伦理题材剧本被委婉否定</li>
+            <li>UCLA是一所非常在乎产业化的学校</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">我那些外国同学们，他们给我的第一个打击就是他们根本没听过费里尼跟楚浮跟黑泽明是谁。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">我以为学电影的学生会知道。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">他们是学好莱坞的学生，好莱坞以外那些他们一律归为艺术。所以我进的那个学校是非常在乎你要产业化的学校。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            他们第一堂编剧课教出来的剧本，全部都是谋杀撞车走私贩毒那些，教授称赞得不得了。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s3">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">03</div>
+        <div class="section-title-group">
+            <h2>回应『康熙不好看』：恭喜你毕业了</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=2015" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                33:35 - 53:37
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">罗永浩提起蔡康永曾因回应观众说『康熙来了不好看』而引发争议。蔡康永的真实回答是：『我真的恭喜你毕业了，就是你眼睛更开阔了。』他认为品味提升就像看完《教父》再看其他电影——不是作品变差了，而是观众变强了。他甚至坦言自己签每个名时都知道那张签名照很快会被丢进垃圾桶，这是一种对 fame 的清醒认知。</p>
+        <p class="details-text">蔡康永对被说『康熙不好看』的回应曾被嘲笑，但他坚持这是真心话。他认为品味的提升意味着旧日的震撼不再，这是成长的标志。他签每个名时都知道那张签名照很快会被丢进垃圾桶，因为『没有人会把你签名照留在抽屉里一辈子』。最好的采访是让嘉宾说出自己都不知道的想法。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/03_kangxi_graduate.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>蔡康永对被说『康熙不好看』的回应：恭喜你毕业了</li>
+            <li>品味的提升意味着旧日的震撼不再，这是成长的标志</li>
+            <li>他认为自己签名照最终都会进垃圾桶，对 fame 保持清醒</li>
+            <li>最好的采访是让嘉宾说出自己都不知道的想法</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">你们看康熙已经不好看的时候，我就会回答说『我真的恭喜你毕业了，就是你眼睛更开阔了』。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">那种表达是让我感觉特别绝望的，就是你好像云淡风轻地说了一些事情，就给人感觉好像绝大多数人一生的认知都到不了这个境界。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            人家抛弃我的书，或者抛弃我的节目，或者抛弃我的签名照，全部都是。我签每个名的时候，我都知道它就是很快会被丢到垃圾桶里面去的状态。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s4">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">04</div>
+        <div class="section-title-group">
+            <h2>绝非心灵鸡汤：关于仪式感的真相</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=3217" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                53:37 - 01:24:03
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">罗永浩坦承自己曾经误以为蔡康永的书是心灵鸡汤，直到一次抖音连麦活动中，蔡康永对一个因初恋女友车祸去世而十几年走不出来的男生给出了震撼人心的建议。蔡康永指出，真正的仪式感不是别人塞给我们的节日，而是我们自己创造的、发自真心的仪式。他建议这位男生为逝去的女友创造一个专属仪式——完成她生前最在意的事情，然后把它放在心中重要的位置供奉起来，这样既能永远记得她，也能好好活下去。</p>
+        <p class="details-text">在抖音连麦活动中，一位三十多岁的男生讲述了自己十七岁时的初恋女友因车祸去世，此后十几年一直走不出来。蔡康永没有讲大道理，而是建议他为这段感情创造一个专属的仪式——完成她生前最在意的事情，把它放在心中重要的位置供奉起来。这样既能永远记得她，也能好好活下去。带着新伴侣一起完成旧仪式，反而证明你是一个重情重义的人。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/04_ritual.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>罗永浩曾误以为蔡康永的书是心灵鸡汤，后被一次连麦彻底改变</li>
+            <li>蔡康永对『仪式感』的定义：必须是自己创造的、发自真心的</li>
+            <li>为逝去的感情创造专属仪式，是走出伤痛的最好方式</li>
+            <li>带着新伴侣一起完成旧仪式，反而证明你是一个重情重义的人</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">男生</span><span class="dialogue-text">我十七岁的时候遇到了我的初恋，这个姑娘非常漂亮非常有才华，但是我们交往了一年多之后，这个姑娘就是因为出了车祸去世了。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">如果有一段感情我们已经失去了，然后走不出来的话，是不是有可能可以为它创造一个仪式，然后把它放在一个对的重要的位置，然后永远的记得它。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            如果有一段感情我们已经失去了，然后走不出来的话，是不是有可能可以为它创造一个仪式，然后把它放在一个对的重要的位置，然后永远的记得它。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s5">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">05</div>
+        <div class="section-title-group">
+            <h2>《康熙来了》：打败时间的综艺奇迹</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=5043" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                01:24:03 - 02:06:25
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">罗永浩深情回顾《康熙来了》对自己的意义。他认为这档节目不仅是一个成功的综艺，更是真正打败时间、跨越所有年龄层的文化现象。54岁的他记忆力衰退，但正因为康熙录了近3000集，他可以永远看下去——看到第2900集时第一集已经忘了。他认为借助短视频平台，康熙正在奇迹般地被00后年轻观众发现。华纳电影75周年时的一句标语『75 years of entertaining the world』让他意识到娱乐的伟大，而康熙来了正是华语世界这样的奇迹。</p>
+        <p class="details-text">罗永浩54岁记忆力衰退，但因康熙近3000集可以『看到死』——看到第2900集时第一集已经忘了，所以可以一辈子看下去。康熙来了没了之后造成的失落感非常难以消化。华纳电影75周年的标语『75 years of entertaining the world』让他重新理解娱乐的价值。康熙来了是真正打败时间、跨越年龄层的绝对标杆。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/05_kangxi_legacy.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>罗永浩54岁记忆力衰退，但因康熙近3000集可以『看到死』</li>
+            <li>00后年轻人通过短视频平台重新发现康熙来了</li>
+            <li>华纳『75 years of entertaining the world』让他重新理解娱乐的价值</li>
+            <li>康熙来了是真正打败时间、跨越年龄层的绝对标杆</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">我今天54岁了，记性很差。你们又录了2900多集，所以我经常看到的时候就觉得是全新的。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">我心里很踏实的知道，我一直可以看到死。就是这个康熙来了，越来越想看。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            我心里很踏实的知道，我一直可以看到死。就是这个康熙来了，越来越想看。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s6">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">06</div>
+        <div class="section-title-group">
+            <h2>深入讨论AI：人类会被淘汰吗？</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=7585" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                02:06:25 - 02:20:32
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">罗永浩提出一个终极问题：AI时代，人类是否会被淘汰？他介绍了马斯克与拉里·佩奇的两种截然不同的态度——佩奇认为如果AI比人类聪明百倍，人类被淘汰也是自然法则；马斯克则认为必须以人类为重心，甚至为此发起诉讼。蔡康永的回答出人意料：他不相信人类会被淘汰。他认为人类的神经系统有一种神奇的能力，即使在最无可奈何的情况下，也能形成连结、找出应对方法。他相信人类会像蟑螂一样顽强存活。</p>
+        <p class="details-text">拉里·佩奇认为AI淘汰人类是自然竞争——人类在地球生命的竞争中赢过所有动物就是因为人最聪明，所以如果出现超过人的智能，人类被淘汰也是正常。马斯克虽然常被批评没人性，但实际上他是所有科技巨头中最热爱人类的。蔡康永则认为人类的神经系统有一种神奇的能力，即使在最无可奈何的情况下也能形成连结、找出应对方法。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/06_ai_future.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>拉里·佩奇认为AI淘汰人类是自然竞争，马斯克则坚持人本主义</li>
+            <li>蔡康永不相信人类会被AI淘汰</li>
+            <li>人类神经系统能在绝境中形成连结、找出生存方法</li>
+            <li>『我们挺像蟑螂的，被灭之后还是会有一两百人留下来继续做些什么』</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">马斯克和拉里·佩奇他们俩对AI的态度是截然不同的。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">佩奇的意思是，如果有一天AI比人类聪明100倍1000倍，那人类被他淘汰也是正常的。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">我不信这件事，我不相信人类会被它淘汰。我们的脑子不会容许我们回到动物的状态去。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            我不信这件事，我不相信人类会被它淘汰。我们的脑子不会容许我们回到动物的状态去。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s7">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">07</div>
+        <div class="section-title-group">
+            <h2>中年心理危机：40岁那年的恐怖确定感</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=8432" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                02:20:32 - 02:41:33
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">蔡康永谈到40岁左右经历的中年危机。首先是『人生已经被确认了』——你就是你，不会做到什么了不起的事情了。小时候他常翻一本《世界导演传奇》，看导演们几岁拍出第一部电影，每接近一个年龄就全身发冷，过了就放弃那一页。到40岁时终于确认：你选了一条路就选不了别的路，那种希望的幻灭无法避免。但更大的恐怖来自生理——你会的每件事，明天可能就不会了。</p>
+        <p class="details-text">蔡康永40岁时产生『人生已经被确认』的绝望感——你就是你，不会变成马斯克了。小时候翻《世界导演传奇》，随着年龄接近书中数字而全身发冷。但更大的恐怖来自生理：你会的每件事，明天可能就不会了。看每一集康熙的内容，都不觉得可以再做一次那件事情——都是当下做出来的，这也给了他很大的自由感。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/07_midlife_crisis.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>40岁时产生『人生已经被确认』的绝望感</li>
+            <li>小时候翻《世界导演传奇》，随着年龄接近书中数字而全身发冷</li>
+            <li>认清自己选了一条路就选不了别的路</li>
+            <li>最明确的绝望来自生理：你会的每件事，明天可能就不会了</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">首先是觉得人生已经被确认了，你就是不会做到什么了不起的事情。这一点打击很大。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">你后面十二年创造了娱乐行业的奇迹，做了一个伟大的节目。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">当下不会这样感觉的。现在也不觉得。我觉得那个好像是别人做的事情，不像是我做的事情。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            四十岁之前恐怕还觉得自己有很多可能性。到四十岁的时候就想说，啊，原来你就是这样，你不会变成马斯克的。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s8">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">08</div>
+        <div class="section-title-group">
+            <h2>遗嘱、死亡和葬礼：直面生命的终点</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=9693" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                02:41:33 - 03:13:28
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">蔡康永透露自己已经写好遗嘱，并刚去和律师核对过。他详细解释了遗嘱和遗愿的区别：遗嘱只处理财产，具有法律效力；而社交平台账号在死后一个月关闭、海葬等愿望属于遗愿，没有法律约束力，只能靠身边人自愿执行。他认为谈任何人先不谈死是非常可笑的态度，规避死亡不可能是乐观。他甚至觉得没有后代的人反而更能轻松面对死亡，因为『人生不是靠繁殖延续下去的』。</p>
+        <p class="details-text">蔡康永已经写好遗嘱，刚与律师核对更新。遗嘱只处理财产，社交平台关闭等属于遗愿，无法律约束力——『人家愿意替你执行就做了，人家有权利不要』。他认为谈任何人先不谈死是可笑的态度，死不是脏字。没有后代的人反而更能轻松面对死亡，因为人生不是靠繁殖延续下去的。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/08_will_death.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>蔡康永已经写好遗嘱，刚与律师核对更新</li>
+            <li>遗嘱只处理财产，社交平台关闭等属于遗愿，无法律约束力</li>
+            <li>谈任何人先不谈死是可笑的态度，死不是脏字</li>
+            <li>没有后代的人反而更能轻松面对死亡</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">提到你开始写遗嘱了？</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">真的。来之前刚去跟律师核对过，又更新了一把。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">社交平台账号如果要在死后一个月全部关闭，这个是不放在遗嘱里面的。因为跟财产没关系，所以你要放在另外一个地方叫做遗愿。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">遗愿没有法律效力，人家愿意替你执行就做了。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            我觉得谈任何人先不谈死，是一个非常可笑的态度。规避死亡这个事情不可能是乐观。死这个字怎么可能变成脏字呢？
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s9">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">09</div>
+        <div class="section-title-group">
+            <h2>理想的告别：猝然离世是最好的结局</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=11608" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                03:13:28 - 03:34:52
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">蔡康永描述了自己理想的告别方式：他的遗愿里写着，社交平台公告『蔡康永死了，他的平台会在一个月后关闭』，附上一句『谢谢大家的支持』。他理想的状态是猝死——忽然之间死掉。这也是他后来减少主持节目的原因之一，因为不想在摄影棚里突然死掉，给工作人员添麻烦。至于生命态度，他认为一直意识到会死是非常乐观的事——就像烤面包，意义是边做边出现的香味，不是事先能找到的。</p>
+        <p class="details-text">蔡康永理想的状态是猝死——忽然之间死掉。他见过一些很老的主持人还在主持，看起来就是要死了。这也是他减少主持节目的原因之一：不想在摄影棚里死掉给同事添麻烦。人生的意义像是面包的香味，一边做一边出现——没有人说还没做面包就要去找那个香味，你找不到的。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/09_farewell.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>理想告别：社交平台公告『蔡康永死了，平台一个月后关闭』</li>
+            <li>理想状态是猝死，不想在摄影棚里死掉给同事添麻烦</li>
+            <li>人生的意义像是面包的香味，一边做一边出现</li>
+            <li>一直意识到会死，是非常乐观的事情</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">我的遗愿里面写：社交平台公告说『蔡康永死了，他的平台会在一个月后关闭』。我会有一句像人讲的话，我会说谢谢大家的支持。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">为什么会用到第三人称呢？</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">因为一定是我的同事替我发的呀，我不可能本人自协。我理想状态是猝死，就是忽然之间死掉。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            人生的意义就很像是面包的香味。你一定是一边做，一边出现那个香味。没有人说，我还没做面包，我就要去找到那个香味。你找不到的。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="section" id="s10">
+    <span class="section-anchor"></span>
+    <div class="section-header">
+        <div class="section-num-box">10</div>
+        <div class="section-title-group">
+            <h2>推荐嘉宾与最后的感谢</h2>
+            <a class="timestamp" href="https://www.bilibili.com/video/BV1ou9mBFEMZ?t=12892" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                03:34:52 - 03:37:20
+            </a>
+        </div>
+    </div>
+    <div class="section-body">
+        <p class="summary-text">节目最后，罗永浩请蔡康永推荐三位嘉宾。蔡康永提到一位老朋友但对方已明确拒绝受访，又提到一个自己年轻时还骂过的人——如果罗永浩能让他接受采访，蔡康永一定会去旁听，而且开场就要把当年骂他的事先说了。最后换成了李安，蔡康永说李安是很棒的受访者，他很想要知道李安最近怎么样。</p>
+        <p class="details-text">蔡康永推荐嘉宾时提到一位已明确拒绝受访的老朋友，让他特别生不逢时。另一位是自己年轻时骂过的人，如果对方愿意接受采访，他肯定去旁听，而且开场就要把当年骂他的事先说了。最后换成了李安，蔡康永说李安是很棒的受访者，他很想要知道李安最近怎么样。</p>
+        <div class="clip-video-wrap">
+    <video class="clip-video" controls preload="metadata" poster="">
+        <source src="clips/10_guests.mp4" type="video/mp4">
+    </video>
+    <div class="clip-video-label">精彩片段</div>
+</div>
+        <ul class="bullet-list">
+            <li>蔡康永推荐嘉宾时提到一位已明确拒绝受访的老朋友</li>
+            <li>另一位是自己年轻时骂过的人，如果对方愿意上会亲自去旁听</li>
+            <li>最后换成李安，蔡康永说李安是很棒的受访者</li>
+        </ul>
+        <div class="dialogue-block"><div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">给我们推荐三个嘉宾，这三个嘉宾可以是你认识帮我们牵线搭桥的，也可以仅仅是你喜欢这个人。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">有一个人是我觉得你应该做得到，我们是老朋友了。聊过。很难过，这也是我生不逢时。他已经明确拒绝受访了。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">另外一个，我年轻的时候还骂过他。但是如果你竟然能让他同意接受采访，我肯定去。而且开场就把我当年骂他这事先说了。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">罗永浩</span><span class="dialogue-text">换成李安。</span></div>
+<div class="dialogue-line"><span class="dialogue-speaker">蔡康永</span><span class="dialogue-text">李安是很棒的受访者。当然他很愿意讲。所以我好久没有访问到他，我很想要知道他最近怎么样。</span></div></div>
+        <blockquote>
+            <span class="quote-mark">"</span>
+            有快乐有幸福感的一次。
+        </blockquote>
+    </div>
+</div>
+
+  <div class="clip-index">
+    <h3>章节索引</h3>
+    <div class="clip-grid">
+      <div class="clip-card" onclick="document.querySelector('#s1').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">01 - 聊聊近况：告别公众视野的日子</div><div class="clip-card-time">00:00 - 23:52</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s2').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">02 - 两老头论片：好莱坞的傲慢与偏见</div><div class="clip-card-time">23:52 - 33:35</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s3').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">03 - 回应『康熙不好看』：恭喜你毕业了</div><div class="clip-card-time">33:35 - 53:37</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s4').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">04 - 绝非心灵鸡汤：关于仪式感的真相</div><div class="clip-card-time">53:37 - 01:24:03</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s5').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">05 - 《康熙来了》：打败时间的综艺奇迹</div><div class="clip-card-time">01:24:03 - 02:06:25</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s6').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">06 - 深入讨论AI：人类会被淘汰吗？</div><div class="clip-card-time">02:06:25 - 02:20:32</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s7').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">07 - 中年心理危机：40岁那年的恐怖确定感</div><div class="clip-card-time">02:20:32 - 02:41:33</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s8').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">08 - 遗嘱、死亡和葬礼：直面生命的终点</div><div class="clip-card-time">02:41:33 - 03:13:28</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s9').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">09 - 理想的告别：猝然离世是最好的结局</div><div class="clip-card-time">03:13:28 - 03:34:52</div></div>
+      <div class="clip-card" onclick="document.querySelector('#s10').scrollIntoView({behavior:'smooth'})"><div class="clip-card-title">10 - 推荐嘉宾与最后的感谢</div><div class="clip-card-time">03:34:52 - 03:37:20</div></div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>内容由 AI 根据视频转录稿生成 · 仅供学习参考</p>
+  <p style="margin-top:6px">来源：Bilibili · 罗永浩的十字路口</p>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  document.querySelector('.progress-fill').style.width = pct + '%';
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
