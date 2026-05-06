@@ -9,11 +9,10 @@
 - `{{GUEST}}` — 嘉宾姓名及头衔
 - `{{HOST}}` — 主持人姓名
 - `{{DURATION}}` — 大致时长（例如"~85 分钟"）
-- `{{CLIP_COUNT}}` — 提取的片段数量
 - `{{TAG}}` — 播客/节目名称标签（例如"Y Combinator 深度访谈"）
 - `{{SECTIONS_HTML}}` — 生成的章节区块
 - `{{TOC_LINKS}}` — 生成的目录链接
-- `{{CLIP_INDEX_CARDS}}` — 生成的片段索引卡片
+- `{{SECTION_INDEX_CARDS}}` — 生成的章节索引卡片
 - `{{KEY_TAKEAWAY_TITLE}}` — 要点总结区域标题
 - `{{KEY_TAKEAWAY_CONTENT}}` — 要点段落
 - `{{FOOTER_TEXT}}` — 页脚署名
@@ -216,18 +215,18 @@
 
 ### Hover 卡片抬升
 
-片段索引卡片在 hover 时轻微上浮并加深阴影：
+章节索引卡片在 hover 时轻微上浮并加深阴影：
 
 ```css
-.clip-card {
+.section-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.clip-card:hover {
+.section-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   border-color: var(--border-hover);
@@ -306,20 +305,115 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 ```
 
-### 渐变背景流动
+### 首屏 Hero（封面背景）
 
-首屏 hero 区域缓慢流动的渐变背景：
+使用视频封面缩略图作为背景，叠加深色渐变遮罩确保文字可读：
+
+```html
+<div class="hero">
+  <div class="hero-bg" style="background-image: url('封面图URL');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <h1>标题</h1>
+    <p class="subtitle">副标题</p>
+    <!-- 嘉宾/主持人信息 -->
+  </div>
+</div>
+```
 
 ```css
 .hero {
-  background: linear-gradient(-45deg, #0a1628, #1e1b4b, #0f172a, #050810);
-  background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite;
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 24px 48px;
+  overflow: hidden;
 }
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(5,8,16,0.65) 0%,
+    rgba(5,8,16,0.75) 30%,
+    rgba(5,8,16,0.92) 65%,
+    rgba(5,8,16,0.98) 100%
+  );
+  z-index: 1;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+.hero h1, .hero .subtitle {
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
+}
+```
+
+### 视频入口（封面图 + 外链）
+
+替代 iframe（`file://` 协议下 YouTube iframe 会报错 153），使用封面图 + 播放按钮 + 外部链接：
+
+```html
+<div class="video-embed">
+  <img class="embed-thumb" src="封面图URL" alt="视频封面">
+  <div class="embed-overlay"></div>
+  <div class="embed-play"><svg>...</svg></div>
+  <span class="embed-label">在 YouTube 上观看</span>
+  <a class="embed-link" href="原始视频URL" target="_blank" rel="noopener"></a>
+</div>
+```
+
+```css
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+  cursor: pointer;
+}
+.video-embed .embed-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.video-embed .embed-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  transition: background 0.3s ease;
+}
+.video-embed:hover .embed-overlay {
+  background: rgba(0,0,0,0.2);
+}
+.video-embed .embed-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-embed .embed-link {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: block;
 }
 ```
 
@@ -338,32 +432,6 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
 }
 ```
 
-### 视频卡片 play 按钮脉冲
-
-未播放时中心 play 图标带柔和脉冲：
-
-```css
-.play-button {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: var(--accent);
-  position: relative;
-}
-.play-button::after {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  opacity: 0;
-  animation: pulseRing 2s ease-out infinite;
-}
-@keyframes pulseRing {
-  0% { transform: scale(0.8); opacity: 0.6; }
-  100% { transform: scale(1.4); opacity: 0; }
-}
-```
-
 ## 章节 HTML 片段
 
 ```html
@@ -373,24 +441,51 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
         <div class="section-num-box">01</div>
         <div class="section-title-group">
             <h2>章节标题</h2>
-            <span class="timestamp">01:33 - 03:19</span>
+            <a class="timestamp" href="原始视频链接?t=93" target="_blank" rel="noopener">01:33 - 03:19</a>
         </div>
     </div>
     <div class="section-body">
         <p>总结段落...</p>
+        <p class="details">补充背景和细节...</p>
         <ul class="bullet-list">
             <li><strong>要点：</strong>描述</li>
         </ul>
-        <blockquote>"来自转录稿的直接引述"</blockquote>
+        <blockquote>"中文翻译后的原话引述"</blockquote>
 
-        <div class="video-wrap">
-            <video controls preload="metadata">
-                <source src="clips/01_title.mp4" type="video/mp4">
-            </video>
-            <div class="video-label"><span class="play-dot"></span> 精彩片段：描述 (起始 - 结束)</div>
+        <div class="dialogue">
+            <div class="dialogue-line"><span class="dialogue-speaker">说话人A</span><span class="dialogue-text">精彩对谈内容（中文翻译）</span></div>
+            <div class="dialogue-line"><span class="dialogue-speaker">说话人B</span><span class="dialogue-text">精彩对谈内容（中文翻译）</span></div>
         </div>
     </div>
 </div>
+```
+
+### 对话块样式
+
+```css
+.dialogue {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 18px 0;
+}
+.dialogue-line {
+  margin-bottom: 10px;
+}
+.dialogue-line:last-child {
+  margin-bottom: 0;
+}
+.dialogue-speaker {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--accent);
+  margin-right: 8px;
+}
+.dialogue-text {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
 ```
 
 ## 目录链接片段
@@ -403,12 +498,12 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
 </a>
 ```
 
-## 片段索引卡片片段
+## 章节索引卡片片段
 
 ```html
-<div class="clip-card" onclick="document.querySelector('#s1 video').scrollIntoView({behavior:'smooth'})">
-    <div class="clip-card-title">01 - 章节标题</div>
-    <div class="clip-card-time">01:33 - 03:19 <span class="clip-card-duration">1分46秒</span></div>
+<div class="section-card" onclick="document.querySelector('#s1').scrollIntoView({behavior:'smooth'})">
+    <div class="section-card-title">01 - 章节标题</div>
+    <div class="section-card-time">01:33 - 03:19 <span class="section-card-duration">1分46秒</span></div>
 </div>
 ```
 
@@ -465,8 +560,7 @@ document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
 - **完全自包含**：所有 CSS 内联，无 CDN、无外部字体链接
 - **响应式**：移动端 `< 640px` 自动单列、缩减间距
-- **视频路径**：使用相对路径 `clips/01_title.mp4`，与 HTML 同目录
-- **字幕烧录**：非中文视频必须将字幕烧录到视频帧中，不使用 `<track>` 标签（`file://` 协议下浏览器会阻止它们）
+- **视频入口**：使用封面图 + 外部链接替代 iframe（`file://` 协议下 YouTube iframe 会报错 153）
 - **中文支持**：字体栈中保留 `Noto Sans SC` 或 `PingFang SC` 回退
 - **滚动优化**：`section-anchor` 配合 `scroll-margin-top` 实现锚点偏移
 - **CSS 动画**：所有动画使用 `@keyframes` 内联实现，不引用外部动画库（如 animate.css、GSAP）
